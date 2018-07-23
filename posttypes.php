@@ -25,3 +25,11 @@
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+function my_custom_posttypes() {
+	$args = array(
+		'public' => true,
+		'label'  => 'Testimonials'
+	);
+	register_post_type( 'testimonial', $args );
+}
+add_action( 'init', 'my_custom_posttypes' );
