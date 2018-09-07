@@ -4,7 +4,7 @@
  * Plugin URI: http://yoursite.com
  * Description: A simple plugin that adds custom post types and taxonomies
  * Version: 0.1
- * Author: Your Name
+ * Author: Maarten von Kreijfelt
  * Author URI: http://yoursite.com
  * License: GPL2
  */
@@ -62,8 +62,13 @@ function my_custom_posttypes() {
 		'show_in_rest'		 => true
 	);
 	register_post_type( 'testimonial', $args );
+
+
+
 }
 add_action( 'init', 'my_custom_posttypes' );
+
+
 
 // Flush rewrite rules to add "review" as a permalink slug
 function my_rewrite_flush() {
@@ -71,3 +76,43 @@ function my_rewrite_flush() {
 	flush_rewrite_rules();
 }
 register_activation_hook( __FILE__, 'my_rewrite_flush' );
+
+
+
+
+
+
+// Custom Taxonomies
+function my_custom_taxonomies() {
+	register_taxonomy(
+		'Type of Product/Service',
+		'review',
+		array(
+			'label' => __( 'Type of Product/Service' ),
+			'rewrite' => array( 'slug' => 'product-type' ),
+			'hierarchical' => true,
+		)
+	);
+
+	register_taxonomy(
+		'Price Range',
+		'review',
+		array(
+			'label' => __( 'Price Range' ),
+			'rewrite' => array( 'slug' => 'price' ),
+			'hierarchical' => true,
+		)
+	);
+
+	register_taxonomy(
+		'Mood',
+		'review',
+		array(
+			'label' => __( 'Mood' ),
+			'rewrite' => array( 'slug' => 'mood' ),
+			'hierarchical' => false,
+		)
+	);
+}
+
+add_action( 'init', 'my_custom_taxonomies' );
