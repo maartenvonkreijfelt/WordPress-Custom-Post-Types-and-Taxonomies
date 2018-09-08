@@ -150,6 +150,7 @@ function my_custom_taxonomies() {
 		'show_admin_column' => true,
 		'query_var'         => true,
 		'rewrite'           => array( 'slug' => 'product-types' ),
+		'show_in_rest'		=> true
 	);
 
 	register_taxonomy( 'product-type', array( 'reviews' ), $args );
@@ -182,6 +183,7 @@ function my_custom_taxonomies() {
 		'update_count_callback' => '_update_post_term_count',
 		'query_var'             => true,
 		'rewrite'               => array( 'slug' => 'moods' ),
+		'show_in_rest'			=> true
 	);
 
 	register_taxonomy( 'mood', array( 'reviews', 'post' ), $args );
