@@ -182,7 +182,7 @@ function my_custom_taxonomies() {
 		'show_in_rest'		=> true
     );
 
-    register_taxonomy( 'price', array( 'review' ), $args );
+    register_taxonomy( 'price', array( 'reviews' ), $args );
     
 
 	// Mood taxonomy (non-hierarchical)
