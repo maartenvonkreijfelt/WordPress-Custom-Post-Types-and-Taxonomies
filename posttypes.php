@@ -154,6 +154,36 @@ function my_custom_taxonomies() {
 	);
 
 	register_taxonomy( 'product-type', array( 'reviews' ), $args );
+    
+    
+    
+     // Price Range taxonomy
+    $labels = array(
+        'name'              => 'Price Ranges',
+        'singular_name'     => 'Price Range',
+        'search_items'      => 'Search Price Ranges',
+        'all_items'         => 'All Price Ranges',
+        'parent_item'       => 'Parent Price Range',
+        'parent_item_colon' => 'Parent Price Range:',
+        'edit_item'         => 'Edit Price Range',
+        'update_item'       => 'Update Price Range',
+        'add_new_item'      => 'Add New Price Range',
+        'new_item_name'     => 'New Price Range Name',
+        'menu_name'         => 'Price Range',
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'prices' ),
+		'show_in_rest'		=> true
+    );
+
+    register_taxonomy( 'price', array( 'review' ), $args );
+    
 
 	// Mood taxonomy (non-hierarchical)
 	$labels = array(
